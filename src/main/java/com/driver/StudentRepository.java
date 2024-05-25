@@ -30,6 +30,16 @@ public class StudentRepository {
     public void saveStudentTeacherPair(String student, String teacher){
         if(studentMap.containsKey(student) && teacherMap.containsKey(teacher)){
             // your code goes here
+            Teacher teacherObj=null;
+            for(String t:teacherMap.keySet()){
+                if(t.equals(teacher)){
+                    teacherObj=teacherMap.get(t);
+                    break;
+                }
+            }
+            if(teacherObj!=null){
+                teacherObj.setNumberOfStudents(1+teacherObj.getNumberOfStudents());
+            }
             teacherStudentMapping.get(teacher).add(student);
         }
     }
