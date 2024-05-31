@@ -68,14 +68,19 @@ public class StudentRepository {
     public List<String> findStudentsFromTeacher(String teacher){
         // your code goes here
         // find student list corresponding to a teacher
+        List<String> studs=new ArrayList<>();
         if(teacher!=null){
             return teacherStudentMapping.get(teacher);
         }
-        return null;
+        return studs;
     }
 
     public List<String> findAllStudents(){
         // your code goes here
+        if(studentMap.isEmpty()){
+            List<String> studs=new ArrayList<>();
+            return studs;
+        }
         List<String> studs=new ArrayList<>(studentMap.keySet());
         return studs;
     }
